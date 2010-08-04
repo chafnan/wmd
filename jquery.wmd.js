@@ -998,12 +998,13 @@ var PreviewManager = function(wmd){ // {{{
             else {
                 var newText = text.replace(/&/g, "&amp;");
                 newText = newText.replace(/</g, "&lt;");
-                wmd.panels.output.innerHTML = "<pre><code>" + newText + "</code></pre>";
+                wmd.panels.output.innerHTML = "<pre><code class='prettyprint'>" + newText + "</code></pre>";
             }
         }
         
         if (wmd.panels.preview) {
             wmd.panels.preview.innerHTML = text;
+            prettyPrint();
         }
         
         setPanelScrollTops();
@@ -3212,7 +3213,7 @@ var _DoCodeBlocks = function(text) {
 			codeblock = codeblock.replace(/^\n+/g,""); // trim leading newlines
 			codeblock = codeblock.replace(/\n+$/g,""); // trim trailing whitespace
 
-			codeblock = "<pre><code>" + codeblock + "\n</code></pre>";
+			codeblock = "<pre><code class='prettyprint'>" + codeblock + "\n</code></pre>";
 
 			return hashBlock(codeblock) + nextChar;
 		}
