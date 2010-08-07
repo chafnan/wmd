@@ -33,7 +33,9 @@
                     .attr("id", options.output)
                     .insertAfter(this);
             }
-                
+
+            $(this).wrap('<div class="wmd-inputarea" id="wmd-inputarea-' + counter + '" />');
+
             this.id = this.id || "wmd-input-" + counter;
             options.input = this.id;
             
